@@ -1,0 +1,38 @@
+{
+  "writings": [
+    {
+      "title": "girino",
+      "type": "poetry",
+      "year": "2024",
+      "linkType": "pdf",
+      "link": "girino.pdf"
+    },
+    {
+      "title": "(tovu va bohu)  תֹהוּ וָבֹהו",
+      "type": "poetry",
+      "year": "2024",
+      "linkType": "pdf",
+      "link": "(tovu va bohu)  תֹהוּ וָבֹהו.pdf"
+    },
+    {
+      "title": "Ego Sum Brutus",
+      "type": "poetry",
+      "year": "2024",
+      "linkType": "pdf",
+      "link": "Ego Sum Brutus.pdf"
+    },
+    {
+      "title": "sliced moon",
+      "type": "short story",
+      "year": "2026",
+      "linkType": "pdf",
+      "link": "sliced moon.pdf"
+    }
+  ],
+  "projects": [],
+  "about": {
+    "photo": "images/foda.jpg",
+    "bio1": "i'm a developer for my own mind, and like to help others create things for themselves. what drives me is that i'm insane enought to make it in this world.",
+    "bio2": "i study and work, and i like to eat."
+  }
+}
