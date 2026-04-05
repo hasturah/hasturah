@@ -50,7 +50,11 @@
       align-items: center;
       padding: 1.4rem 2.5rem;
       background: linear-gradient(to bottom, rgba(8,8,0,0.98), transparent);
+      transition: background 0.4s ease;
     }
+
+    nav.solid { background: rgba(8,8,0,0.98); }
+    html.day nav.solid { background: rgba(245,240,213,0.98); }
 
     .nav-links {
       display: flex;
@@ -1490,8 +1494,27 @@
     }
   });
 
+  // --- Nav solid on scroll ---
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').classList.toggle('solid', window.scrollY > 60);
+  }, { passive: true });
+
   // --- PDF overlay ---
-  function openPdfOverlay(path, title) {
+  async function openPdfOverlay(path, title) {
+    if (window.location.protocol !== 'file:') {
+      try {
+        const res = await fetch(path, { method: 'HEAD' });
+        if (!res.ok) {
+          document.getElementById('pdf-overlay-title').textContent = title;
+          document.getElementById('pdf-frame').src = '';
+          document.getElementById('pdf-download-link').removeAttribute('href');
+          document.getElementById('pdf-overlay').classList.add('open');
+          document.body.style.overflow = 'hidden';
+          document.getElementById('pdf-frame').srcdoc = `<body style="background:#080800;display:flex;align-items:center;justify-content:center;height:100vh;font-family:monospace;color:#6b5000;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase">— pdf only available locally —</body>`;
+          return;
+        }
+      } catch (_) {}
+    }
     document.getElementById('pdf-overlay-title').textContent = title;
     document.getElementById('pdf-frame').src = path;
     document.getElementById('pdf-download-link').href = path;
